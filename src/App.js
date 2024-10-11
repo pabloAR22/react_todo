@@ -20,6 +20,15 @@ function App() {
   // estados derivados
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
+  // const searchedTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchValue));
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchedText = searchValue.toLowerCase();
+
+      return todoText.includes(searchedText);
+    }
+  )
 
   console.log('Todos de: ' + searchValue);
 
@@ -33,7 +42,7 @@ function App() {
       />
 
       <TodoList>
-        { defaultTodos.map(todo => (
+        { searchedTodos.map(todo => (
           <TodoItem
             key={todo.text}
             text={todo.text}
