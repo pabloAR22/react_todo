@@ -1,4 +1,7 @@
 import "./TodoItem.css";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
+
 function TodoItem(props) {
     return (
         <li className="TodoItem">
@@ -8,7 +11,7 @@ function TodoItem(props) {
                 }`}
                 onClick={props.onComplete}
             >
-                V
+                <FaRegCheckCircle />
             </span>
             <p
                 className={`TodoItem-p ${
@@ -20,7 +23,9 @@ function TodoItem(props) {
             <span 
                 className="Icon Icon-delete"
                 onClick={props.onDelete}
-            >X</span>
+            >
+                <MdDeleteOutline />
+            </span>
         </li>
     );
 }
